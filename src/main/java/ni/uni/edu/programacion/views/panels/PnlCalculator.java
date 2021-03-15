@@ -10,7 +10,7 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author Sistemas-05
+ * @author Héctor Fuentes
  */
 public class PnlCalculator extends javax.swing.JPanel {
 
@@ -81,10 +81,13 @@ public class PnlCalculator extends javax.swing.JPanel {
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel1.setText("Numero 1:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        jPanel2.add(jLabel1, gridBagConstraints);
+        jPanel2.add(jLabel1, new java.awt.GridBagConstraints());
+
+        txtNumber1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNumber1ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 0.1;
@@ -123,6 +126,10 @@ public class PnlCalculator extends javax.swing.JPanel {
 
         add(jPanel2, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtNumber1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumber1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumber1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

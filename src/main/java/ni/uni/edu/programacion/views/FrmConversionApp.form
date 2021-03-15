@@ -59,11 +59,18 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Temperatura"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTemperatureActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnCurrency">
           <Properties>
             <Property name="text" type="java.lang.String" value="Moneda"/>
           </Properties>
+          <Events>
+            <EventHandler event="ancestorAdded" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="btnCurrencyAncestorAdded"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCurrencyActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

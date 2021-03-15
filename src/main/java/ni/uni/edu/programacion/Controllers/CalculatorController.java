@@ -11,7 +11,7 @@ import ni.uni.edu.programacion.views.panels.PnlCalculator;
 
 /**
  *
- * @author Sistemas-05
+ * @author Héctor Fuentes
  */
 public class CalculatorController implements ActionListener {
     private PnlCalculator pnlCalculator;
