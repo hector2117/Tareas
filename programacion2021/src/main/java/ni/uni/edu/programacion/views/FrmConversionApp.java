@@ -41,7 +41,7 @@ public class FrmConversionApp extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     private void Components(){
         pnlLeftButtons = new javax.swing.JPanel();
-        btnTemperature = new javax.swing.JButton();
+        btnConversionTemplate = new javax.swing.JButton();
         
        // pnlContent = new javax.swing.JPanel();
     }
@@ -54,7 +54,7 @@ public class FrmConversionApp extends javax.swing.JFrame {
 
         pnlLeftButtons = new javax.swing.JPanel();
         btnCalculator = new javax.swing.JButton();
-        btnTemperature = new javax.swing.JButton();
+        btnConversionTemplate = new javax.swing.JButton();
         btnCurrency = new javax.swing.JButton();
         pnlContent = new javax.swing.JPanel();
 
@@ -74,20 +74,20 @@ public class FrmConversionApp extends javax.swing.JFrame {
         });
         pnlLeftButtons.add(btnCalculator);
 
-        btnTemperature.setText("Temperatura");
-        btnTemperature.addActionListener(new java.awt.event.ActionListener() {
+        btnConversionTemplate.setText("Temperatura");
+        btnConversionTemplate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTemperatureActionPerformed(evt);
+                btnConversionTemplateActionPerformed(evt);
             }
         });
-        pnlLeftButtons.add(btnTemperature);
+        pnlLeftButtons.add(btnConversionTemplate);
 
         btnCurrency.setText("Moneda");
         btnCurrency.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 btnCurrencyAncestorAdded(evt);
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
@@ -123,7 +123,7 @@ public class FrmConversionApp extends javax.swing.JFrame {
        validate();
     }//GEN-LAST:event_btnCalculatorActionPerformed
 
-    private void btnTemperatureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTemperatureActionPerformed
+    private void btnConversionTemplateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConversionTemplateActionPerformed
           if(PnlTemperature == null){
            PnlTemperature = new PnlTemperature();
            TemperatureController = new TemperatureController(PnlTemperature);
@@ -135,7 +135,7 @@ public class FrmConversionApp extends javax.swing.JFrame {
        
        pnlContent.add(PnlTemperature, BorderLayout.CENTER);
        validate();
-    }//GEN-LAST:event_btnTemperatureActionPerformed
+    }//GEN-LAST:event_btnConversionTemplateActionPerformed
 
     private void btnCurrencyAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_btnCurrencyAncestorAdded
         
@@ -195,8 +195,8 @@ public class FrmConversionApp extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalculator;
+    private javax.swing.JButton btnConversionTemplate;
     private javax.swing.JButton btnCurrency;
-    private javax.swing.JButton btnTemperature;
     private javax.swing.JPanel pnlContent;
     private javax.swing.JPanel pnlLeftButtons;
     // End of variables declaration//GEN-END:variables

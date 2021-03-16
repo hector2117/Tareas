@@ -55,12 +55,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCalculatorActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnTemperature">
+        <Component class="javax.swing.JButton" name="btnConversionTemplate">
           <Properties>
             <Property name="text" type="java.lang.String" value="Temperatura"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTemperatureActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConversionTemplateActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnCurrency">
