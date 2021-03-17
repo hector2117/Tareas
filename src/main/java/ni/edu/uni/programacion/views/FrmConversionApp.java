@@ -7,8 +7,11 @@
 package ni.edu.uni.programacion.views;
 
 import java.awt.BorderLayout;
+import javax.swing.JComponent;
 import ni.edu.uni.programacion.controllers.CalculatorController;
+import ni.edu.uni.programacion.controllers.PnlTemperatureController;
 import ni.edu.uni.programacion.views.panels.PnlCalculator;
+import ni.edu.uni.programacion.views.panels.PnlConvertionTemplate;
 
 /**
  *
@@ -17,6 +20,8 @@ import ni.edu.uni.programacion.views.panels.PnlCalculator;
 public class FrmConversionApp extends javax.swing.JFrame {
     private PnlCalculator pnlCalculator;
     private CalculatorController calculatorController;
+    private PnlConvertionTemplate pnlconvertionTemplate;
+    private PnlTemperatureController pnltemperatureController;
     /** Creates new form FrmConversionApp */
     public FrmConversionApp() {
         initComponents();
@@ -54,6 +59,11 @@ public class FrmConversionApp extends javax.swing.JFrame {
         pnlLeftButtons.add(btnCalc);
 
         btnTemp.setText("Temperatura");
+        btnTemp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTempActionPerformed(evt);
+            }
+        });
         pnlLeftButtons.add(btnTemp);
 
         btnCurr.setText("Moneda");
@@ -75,13 +85,24 @@ public class FrmConversionApp extends javax.swing.JFrame {
             calculatorController = new CalculatorController(pnlCalculator);
         }
         
-        if(pnlContent.getComponentCount() > 0){
-            pnlContent.remove(0);
+        addComponent(pnlCalculator);
+    }//GEN-LAST:event_btnCalcActionPerformed
+
+    private void addComponent(JComponent component) {
+        pnlContent.removeAll();
+        pnlContent.add(component, BorderLayout.CENTER);
+        validate();
+        repaint();
+    }
+
+    private void btnTempActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTempActionPerformed
+        if(pnlconvertionTemplate==null){
+            pnlconvertionTemplate=new PnlConvertionTemplate();
+            pnltemperatureController=new PnlTemperatureController(pnlconvertionTemplate);
         }
         
-        pnlContent.add(pnlCalculator, BorderLayout.CENTER);
-        validate();
-    }//GEN-LAST:event_btnCalcActionPerformed
+        addComponent(pnlconvertionTemplate);
+    }//GEN-LAST:event_btnTempActionPerformed
 
     /**
      * @param args the command line arguments
