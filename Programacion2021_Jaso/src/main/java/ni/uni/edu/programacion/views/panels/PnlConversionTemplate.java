@@ -124,6 +124,11 @@ public class PnlConversionTemplate extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         jPanel2.add(jLabel3, gridBagConstraints);
 
+        txtValue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtValueActionPerformed(evt);
+            }
+        });
         txtValue.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtValueKeyTyped(evt);
@@ -152,6 +157,10 @@ public class PnlConversionTemplate extends javax.swing.JPanel {
     private void txtValueKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValueKeyTyped
         noLetters(evt, txtValue);
     }//GEN-LAST:event_txtValueKeyTyped
+
+    private void txtValueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtValueActionPerformed
 
     private void noLetters(KeyEvent evt, JTextField txt) {
         char c = evt.getKeyChar();

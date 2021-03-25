@@ -6,6 +6,9 @@
 package ni.uni.edu.programacion.views;
 
 import java.awt.BorderLayout;
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComponent;
 import ni.uni.edu.programacion.Controllers.PnlVehicleController;
 import ni.uni.edu.programacion.controllers.CalculatorController;
@@ -118,7 +121,11 @@ public class FrmConversionApp extends javax.swing.JFrame {
     private void btnCurrencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCurrencyActionPerformed
         if(pnlVehicle == null){
             pnlVehicle = new PnlVehicle();
-            pnlVehicleController = new PnlVehicleController(pnlVehicle);
+            try {
+                pnlVehicleController = new PnlVehicleController(pnlVehicle);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(FrmConversionApp.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         
         addComponent(pnlVehicle);
