@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComponent;
 import ni.uni.edu.programacion.Controllers.PnlVehicleController;
+import ni.uni.edu.programacion.views.panels.PnlTable;
 import ni.uni.edu.programacion.views.panels.PnlVehicle;
 
 /**
@@ -20,6 +21,8 @@ import ni.uni.edu.programacion.views.panels.PnlVehicle;
 public class FrmVehicle extends javax.swing.JFrame {
     private PnlVehicle pnlVehicle;
     private PnlVehicleController pnlVehicleController;
+    
+    private PnlTable pnlTable;
     /**
      * Creates new form FrmVehicle
      */
@@ -42,7 +45,7 @@ public class FrmVehicle extends javax.swing.JFrame {
         btnView = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
+        pnlContent = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Vehicle.App");
@@ -61,6 +64,11 @@ public class FrmVehicle extends javax.swing.JFrame {
         jPanel1.add(btnNew);
 
         btnView.setText("View");
+        btnView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnView);
 
         jSplitPane1.setLeftComponent(jPanel1);
@@ -70,26 +78,17 @@ public class FrmVehicle extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(204, 255, 204));
         jPanel2.add(jPanel3, java.awt.BorderLayout.PAGE_START);
 
-        jPanel4.setBackground(new java.awt.Color(0, 255, 102));
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 288, Short.MAX_VALUE)
-        );
-
-        jPanel2.add(jPanel4, java.awt.BorderLayout.CENTER);
+        pnlContent.setBackground(new java.awt.Color(0, 255, 102));
+        pnlContent.setPreferredSize(new java.awt.Dimension(0, 0));
+        pnlContent.setLayout(new java.awt.BorderLayout());
+        jPanel2.add(pnlContent, java.awt.BorderLayout.CENTER);
 
         jSplitPane1.setRightComponent(jPanel2);
 
         getContentPane().add(jSplitPane1, java.awt.BorderLayout.CENTER);
 
-        pack();
+        setSize(new java.awt.Dimension(604, 556));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
@@ -103,12 +102,18 @@ public class FrmVehicle extends javax.swing.JFrame {
             }
         }
         
-        add(pnlVehicle);
+        addComponent(pnlVehicle);
     }//GEN-LAST:event_btnNewActionPerformed
+
+    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
+        if (pnlTable == null){
+            pnlTable = new PnlTable();
+        }
+    }//GEN-LAST:event_btnViewActionPerformed
 
     private void addComponent(JComponent component) {
         pnlContent.removeAll();        
-        pnlContent.add(component, BorderLayout.CENTER);
+        pnlContent.add(component,BorderLayout.CENTER);
         validate();
         repaint();
     }
@@ -153,7 +158,7 @@ public class FrmVehicle extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JPanel pnlContent;
     // End of variables declaration//GEN-END:variables
 }

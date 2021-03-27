@@ -15,6 +15,7 @@ import java.awt.event.FocusEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -140,7 +141,19 @@ public class PnlVehicleController {
     }
     
     private void btnBrowseActionListener(ActionEvent e){
-            fileChooser = new JFileChooser();
+        fileChooser = new JFileChooser();
+
+        int option = fileChooser.showOpenDialog(null);
+        if (option == JFileChooser.CANCEL_OPTION) {
+            return;
+        }
+
+        File file = fileChooser.getSelectedFile();
+        if (!file.exists()) {
+            return;
+        }
+
+        pnlVehicle.getTxtImage().setText(file.getPath());
         
         }
 
@@ -183,14 +196,15 @@ public class PnlVehicleController {
         throw  new Exception("Stock Number not valid.");
         }
         
-        if (v.getVin().isEmpty() || v.getVin().isBlank()){
+        if (v.getVin().isEmpty() || v.isBlank(v.getVin())){ // v.getVin().isBlank
         throw new Exception("Vin number invalidad.");
         }
         
-        if (v.getEngine().isBlank() || v.getEngine().isBlank()){
+        if (v.getEngine().isEmpty() || v.isBlank(v.getVin())){  // v.getVin().isBlank
         throw new Exception("Engine cannot be empty.");
         }
-        
     }
+    
+    
         
 }

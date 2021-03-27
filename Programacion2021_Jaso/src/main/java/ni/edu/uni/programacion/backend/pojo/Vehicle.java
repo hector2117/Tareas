@@ -167,6 +167,15 @@ public class Vehicle {
         return "Vehicle{" + "stockNumber=" + stockNumber + ", year=" + year + ", make=" + make + ", model=" + model + ", style=" + style + ", vin=" + vin + ", exteriorColor=" + exteriorColor + ", interiorColor=" + interiorColor + ", miles=" + miles + ", price=" + price + ", transmission=" + transmission + ", engine=" + engine + ", image=" + image + ", status=" + status + '}';
     }
     
+    public boolean isBlank(String cad){
+        if (cad == null){
+            return true;
+        }else if(cad.equalsIgnoreCase("") || cad.equalsIgnoreCase(" ")){
+            return true;
+        }
+        return false;
+    }
+    
     
     
     

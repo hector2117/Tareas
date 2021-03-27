@@ -5,12 +5,16 @@
  */
 package ni.uni.edu.programacion.views.panels;
 
+import ni.uni.edu.programacion.Controllers.PnlVehicleController;
+
 /**
  *
  * @author FAMILIASOZAORTIZ
  */
 public class PnlTable extends javax.swing.JPanel {
+    private PnlVehicleController pnlVehicleController;
 
+    
     /**
      * Creates new form PnlTable
      */
