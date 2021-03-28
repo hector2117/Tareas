@@ -22,11 +22,11 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.border.Border;
@@ -45,7 +45,6 @@ import ni.uni.edu.programacion.views.panels.PnlVehicle;
 public class PnlVehicleController {
     private PnlVehicle pnlVehicle;
     private PnlTableVehicle pnlTableVehicle;
-    
     private Gson gson;
     private List<VehicleSubModel> vehicleSubModels;
     private DefaultComboBoxModel cmbModelMake;
@@ -55,6 +54,7 @@ public class PnlVehicleController {
     private DefaultComboBoxModel cmbModelEColor;
     private DefaultComboBoxModel cmbModelStatus;
     private JFileChooser fileChooser;
+    private JComboBox combo;
     
     private JsonVehicleDaoImpl jvDao;
     private Border stockBorder;
@@ -152,7 +152,7 @@ public class PnlVehicleController {
     private void initComponenTable() throws IOException {
         jvDao = new JsonVehicleDaoImpl();
         List<Vehicle> listVehicles = (List<Vehicle>) jvDao.getAll(); // Se coloca la coleccion en una Lista
-        String[][] tableVehicles = new String[jvDao.getNumberVehicle()][14]; //Creacion de una matriz de tipo String
+        String[][] tableVehicles = new String[jvDao.getNumberVehicle()][15]; //Creacion de una matriz de tipo String
         
         setMatrizForTable(tableVehicles, listVehicles); //Se coloca todos los datos del vehiculo en una matriz tipo String
         
@@ -164,30 +164,31 @@ public class PnlVehicleController {
         pnlTableVehicle.getTblTableVehicle().setModel(new DefaultTableModel( //La matriz se coloca en la table
                 tableVehicles,
                 new String[]{ //Encabezados de cada columna
-                    "Stock number","Year","Make","Model",
-                    "Style","VIN","Exterior color",
-                    "Interior color","Miles","Price",
-                    "Transmission","Engine","Status"
+                    " ID "," Stock number ","  Year","  Make","  Model",
+                    "  Style","  VIN","  Exterior color",
+                    "  Interior color","  Miles","  Price",
+                    "  Transmission","  Engine","  Image", "  Status"
                 }
         ));
     }
 
     private void setMatrizForTable(String[][] tableVehicles, List<Vehicle> listVehicles) throws IOException {
         for (int i=0 ; i < jvDao.getNumberVehicle() ; i++){
-            tableVehicles[i][0] = Integer.toString(listVehicles.get(i).getStockNumber());
-            tableVehicles[i][1] = Integer.toString(listVehicles.get(i).getYear());
-            tableVehicles[i][2] = listVehicles.get(i).getMake();
-            tableVehicles[i][3] = listVehicles.get(i).getModel();
-            tableVehicles[i][4] = listVehicles.get(i).getStyle();
-            tableVehicles[i][5] = listVehicles.get(i).getVin();
-            tableVehicles[i][6] = listVehicles.get(i).getExteriorColor();
-            tableVehicles[i][7] = listVehicles.get(i).getInteriorColor();
-            tableVehicles[i][8] = listVehicles.get(i).getMiles();
-            tableVehicles[i][9] = Float.toString(listVehicles.get(i).getPrice());
-            tableVehicles[i][10] = listVehicles.get(i).getTransmission().toString();
-            tableVehicles[i][11] = listVehicles.get(i).getEngine();
-            tableVehicles[i][12] = listVehicles.get(i).getImage();
-            tableVehicles[i][13] = listVehicles.get(i).getStatus();
+            tableVehicles[i][1] = Integer.toString(listVehicles.get(i).getStockNumber());
+            tableVehicles[i][2] = Integer.toString(listVehicles.get(i).getYear());
+            tableVehicles[i][3] = listVehicles.get(i).getMake();
+            tableVehicles[i][4] = listVehicles.get(i).getModel();
+            tableVehicles[i][5] = listVehicles.get(i).getStyle();
+            tableVehicles[i][6] = listVehicles.get(i).getVin();
+            tableVehicles[i][7] = listVehicles.get(i).getExteriorColor();
+            tableVehicles[i][8] = listVehicles.get(i).getInteriorColor();
+            tableVehicles[i][9] = listVehicles.get(i).getMiles();
+            tableVehicles[i][10] = Float.toString(listVehicles.get(i).getPrice());
+            tableVehicles[i][11] = listVehicles.get(i).getTransmission().toString();
+            tableVehicles[i][12] = listVehicles.get(i).getEngine();
+            tableVehicles[i][13] = listVehicles.get(i).getImage();
+            tableVehicles[i][14] = listVehicles.get(i).getStatus();
+            
         }
     }
    
@@ -234,7 +235,7 @@ public class PnlVehicleController {
         transmission = pnlVehicle.getRbtnAut().isSelected() ? transmission : Vehicle.Transmission.MANUAL;
         status = pnlVehicle.getCmbStatus().getSelectedItem().toString();
         
-        Vehicle v = new Vehicle(stock, year, make, model, style, vin, icolor, icolor, miles, price, transmission, engine, image, status);
+        Vehicle v = new Vehicle( stock, year, make, model, style, vin, icolor, icolor, miles, price, transmission, engine, image, status);
         vehicleValidation(v);
         
         jvDao.create(v);
@@ -255,11 +256,6 @@ public class PnlVehicleController {
         throw new Exception("Engine cannot be empty.");
         }
     }
-
     
-    
-    
-    
-    
-        
 }
+

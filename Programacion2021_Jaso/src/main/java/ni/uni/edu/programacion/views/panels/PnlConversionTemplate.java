@@ -80,6 +80,11 @@ public class PnlConversionTemplate extends javax.swing.JPanel {
         jPanel1.add(btnConv);
 
         btnNew.setText("Nuevo");
+        btnNew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnNew);
 
         add(jPanel1, java.awt.BorderLayout.PAGE_END);
@@ -161,6 +166,10 @@ public class PnlConversionTemplate extends javax.swing.JPanel {
     private void txtValueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValueActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtValueActionPerformed
+
+    private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNewActionPerformed
 
     private void noLetters(KeyEvent evt, JTextField txt) {
         char c = evt.getKeyChar();

@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComponent;
+import javax.swing.JOptionPane;
 import ni.uni.edu.programacion.Controllers.PnlVehicleController;
 import ni.uni.edu.programacion.views.panels.PnlTableVehicle;
 import ni.uni.edu.programacion.views.panels.PnlVehicle;
@@ -44,19 +45,29 @@ public class FrmVehicle extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnNew = new javax.swing.JButton();
         btnView = new javax.swing.JButton();
+        btnExit = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         pnlContent = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Vehicle.App");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jSplitPane1.setDividerLocation(120);
         jSplitPane1.setOneTouchExpandable(true);
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(153, 255, 255));
         jPanel1.setLayout(new java.awt.GridLayout(5, 1, 0, 5));
 
+        btnNew.setBackground(new java.awt.Color(204, 204, 204));
+        btnNew.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnNew.setForeground(new java.awt.Color(102, 0, 102));
+        btnNew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/new-file_40454.png"))); // NOI18N
         btnNew.setText("New");
         btnNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,6 +76,10 @@ public class FrmVehicle extends javax.swing.JFrame {
         });
         jPanel1.add(btnNew);
 
+        btnView.setBackground(new java.awt.Color(204, 204, 204));
+        btnView.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnView.setForeground(new java.awt.Color(51, 0, 255));
+        btnView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/preview_search_find_locate_1551 (1).png"))); // NOI18N
         btnView.setText("View");
         btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,6 +88,18 @@ public class FrmVehicle extends javax.swing.JFrame {
         });
         jPanel1.add(btnView);
 
+        btnExit.setBackground(new java.awt.Color(204, 204, 204));
+        btnExit.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnExit.setForeground(new java.awt.Color(153, 0, 153));
+        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/exit_icon-icons.com_70975.png"))); // NOI18N
+        btnExit.setText("Exit");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnExit);
+
         jSplitPane1.setLeftComponent(jPanel1);
 
         jPanel2.setLayout(new java.awt.BorderLayout());
@@ -80,7 +107,8 @@ public class FrmVehicle extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(204, 255, 204));
         jPanel2.add(jPanel3, java.awt.BorderLayout.PAGE_START);
 
-        pnlContent.setBackground(new java.awt.Color(0, 153, 153));
+        pnlContent.setBackground(new java.awt.Color(204, 204, 204));
+        pnlContent.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         pnlContent.setPreferredSize(new java.awt.Dimension(0, 0));
         pnlContent.setLayout(new java.awt.BorderLayout());
         jPanel2.add(pnlContent, java.awt.BorderLayout.CENTER);
@@ -89,7 +117,7 @@ public class FrmVehicle extends javax.swing.JFrame {
 
         getContentPane().add(jSplitPane1, java.awt.BorderLayout.CENTER);
 
-        setSize(new java.awt.Dimension(924, 556));
+        setSize(new java.awt.Dimension(664, 462));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -121,6 +149,14 @@ public class FrmVehicle extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnViewActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+   cerrar();
+    }//GEN-LAST:event_btnExitActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+       cerrar();
+    }//GEN-LAST:event_formWindowClosing
 
     private void addComponent(JComponent component) {
         pnlContent.removeAll();        
@@ -162,8 +198,22 @@ public class FrmVehicle extends javax.swing.JFrame {
             }
         });
     }
+    
+    
+       public void cerrar(){
+        Object [] opciones ={" Yes "," No "};
+        int eleccion = JOptionPane.showOptionDialog(rootPane," Do you really want to quit the program? "," Confirmation Message ",
+         JOptionPane.YES_NO_OPTION,
+        JOptionPane.QUESTION_MESSAGE,null,opciones,"Aceptar");
+        if (eleccion == JOptionPane.YES_OPTION)
+            {
+                System.exit(0);
+            }else{} 
+       }
+                      
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnExit;
     private javax.swing.JButton btnNew;
     private javax.swing.JButton btnView;
     private javax.swing.JPanel jPanel1;

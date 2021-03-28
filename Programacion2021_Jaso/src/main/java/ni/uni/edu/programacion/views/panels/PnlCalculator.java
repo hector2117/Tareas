@@ -73,6 +73,11 @@ public class PnlCalculator extends javax.swing.JPanel {
         jPanel1.add(btnCalc);
 
         btnNew.setText("Nuevo");
+        btnNew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnNew);
 
         add(jPanel1, java.awt.BorderLayout.PAGE_END);
@@ -163,6 +168,10 @@ public class PnlCalculator extends javax.swing.JPanel {
     private void txtResultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtResultActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtResultActionPerformed
+
+    private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNewActionPerformed
 
     private void noLetters(KeyEvent evt, JTextField txt, boolean t) {
         char c = evt.getKeyChar();
