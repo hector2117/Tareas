@@ -7,11 +7,12 @@ package ni.uni.edu.programacion.views;
 
 import java.awt.BorderLayout;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComponent;
 import ni.uni.edu.programacion.Controllers.PnlVehicleController;
-import ni.uni.edu.programacion.views.panels.PnlTable;
+import ni.uni.edu.programacion.views.panels.PnlTableVehicle;
 import ni.uni.edu.programacion.views.panels.PnlVehicle;
 
 /**
@@ -22,7 +23,7 @@ public class FrmVehicle extends javax.swing.JFrame {
     private PnlVehicle pnlVehicle;
     private PnlVehicleController pnlVehicleController;
     
-    private PnlTable pnlTable;
+    private PnlTableVehicle pnlTable;
     /**
      * Creates new form FrmVehicle
      */
@@ -107,8 +108,17 @@ public class FrmVehicle extends javax.swing.JFrame {
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
         if (pnlTable == null){
-            pnlTable = new PnlTable();
+            pnlTable = new PnlTableVehicle();
+            try {
+                pnlVehicleController = new PnlVehicleController(pnlTable);
+            } catch (IOException ex) {
+                Logger.getLogger(FrmVehicle.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
+        addComponent(pnlTable);
+        
+        
     }//GEN-LAST:event_btnViewActionPerformed
 
     private void addComponent(JComponent component) {

@@ -105,4 +105,16 @@ public class JsonVehicleDaoImpl extends RandomTemplate implements VehicleDao{
         return vehicles;
     }
     
+    public int getNumberVehicle() throws IOException{
+        int num;
+        getCustomRandom().getRafH().seek(0);
+        
+        num = getCustomRandom().getRafH().readInt();
+        
+        close();
+        
+        return num;
+    }
+    
+    
 }

@@ -175,6 +175,10 @@ public class Vehicle {
         }
         return false;
     }
+
+    public String getStatus() {
+        return status;
+    }
     
     
     

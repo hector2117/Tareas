@@ -31,9 +31,11 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableModel;
 import ni.edu.uni.programacion.backend.dao.implementation.JsonVehicleDaoImpl;
 import ni.edu.uni.programacion.backend.pojo.Vehicle;
 import ni.edu.uni.programacion.backend.pojo.VehicleSubModel;
+import ni.uni.edu.programacion.views.panels.PnlTableVehicle;
 import ni.uni.edu.programacion.views.panels.PnlVehicle;
 
 /**
@@ -42,6 +44,8 @@ import ni.uni.edu.programacion.views.panels.PnlVehicle;
  */
 public class PnlVehicleController {
     private PnlVehicle pnlVehicle;
+    private PnlTableVehicle pnlTableVehicle;
+    
     private Gson gson;
     private List<VehicleSubModel> vehicleSubModels;
     private DefaultComboBoxModel cmbModelMake;
@@ -58,6 +62,11 @@ public class PnlVehicleController {
     public PnlVehicleController(PnlVehicle pnlVehicle) throws FileNotFoundException {
         this.pnlVehicle = pnlVehicle;
         initComponent();
+    }
+    
+    public PnlVehicleController(PnlTableVehicle pnlTableVehicle) throws IOException{
+        this.pnlTableVehicle = pnlTableVehicle;
+        initComponenTable();
     }
     
     private void initComponent() throws FileNotFoundException{
@@ -140,6 +149,43 @@ public class PnlVehicleController {
         
     }
     
+    private void initComponenTable() throws IOException {
+        List<Vehicle> listVehicles = new ArrayList<>(jvDao.getAll());
+        String[][] tableVehicles = new String[jvDao.getNumberVehicle() - 1][13];
+        
+        for (int i=0 ; i < jvDao.getNumberVehicle() ; i++){
+            tableVehicles[i][0] =  Integer.toString(listVehicles.get(i).getStockNumber());
+            tableVehicles[i][1] =  Integer.toString(listVehicles.get(i).getYear());
+            tableVehicles[i][2] = listVehicles.get(i).getMake();
+            tableVehicles[i][3] = listVehicles.get(i).getModel();
+            tableVehicles[i][4] = listVehicles.get(i).getStyle();
+            tableVehicles[i][5] = listVehicles.get(i).getVin();
+            tableVehicles[i][6] = listVehicles.get(i).getExteriorColor();
+            tableVehicles[i][7] = listVehicles.get(i).getInteriorColor();
+            tableVehicles[i][8] = listVehicles.get(i).getMiles();
+            tableVehicles[i][9] = Float.toString(listVehicles.get(i).getPrice());
+            tableVehicles[i][10] = listVehicles.get(i).getTransmission().toString();
+            tableVehicles[i][11] = listVehicles.get(i).getEngine();
+            tableVehicles[i][12] = listVehicles.get(i).getImage();
+            tableVehicles[i][13] = listVehicles.get(i).getStatus();
+        }
+        
+        pnlTableVehicle.getTblTableVehicle().setModel(new DefaultTableModel(
+        tableVehicles,
+        new String[]{
+            "Stock number","Year","Make","Model",
+            "Style","VIN","Exterior color",
+            "Interior color","Miles","Price",
+            "Transmission","Engine","Status"
+        }
+    )); 
+        
+    }
+    
+    private void insertDate(){
+        
+    }
+   
     private void btnBrowseActionListener(ActionEvent e){
         fileChooser = new JFileChooser();
 
@@ -204,6 +250,10 @@ public class PnlVehicleController {
         throw new Exception("Engine cannot be empty.");
         }
     }
+
+    
+    
+    
     
     
         
