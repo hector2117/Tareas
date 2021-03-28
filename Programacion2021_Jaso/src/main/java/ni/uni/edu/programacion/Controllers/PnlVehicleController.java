@@ -150,12 +150,32 @@ public class PnlVehicleController {
     }
     
     private void initComponenTable() throws IOException {
-        List<Vehicle> listVehicles = new ArrayList<>(jvDao.getAll());
-        String[][] tableVehicles = new String[jvDao.getNumberVehicle() - 1][13];
+        jvDao = new JsonVehicleDaoImpl();
+        List<Vehicle> listVehicles = (List<Vehicle>) jvDao.getAll(); // Se coloca la coleccion en una Lista
+        String[][] tableVehicles = new String[jvDao.getNumberVehicle()][14]; //Creacion de una matriz de tipo String
         
+        setMatrizForTable(tableVehicles, listVehicles); //Se coloca todos los datos del vehiculo en una matriz tipo String
+        
+        setTable(tableVehicles); //Con la matriz, se coloca en la tabla y se muestra en el panel al inicializarse
+        
+    }
+
+    private void setTable(String[][] tableVehicles) {
+        pnlTableVehicle.getTblTableVehicle().setModel(new DefaultTableModel( //La matriz se coloca en la table
+                tableVehicles,
+                new String[]{ //Encabezados de cada columna
+                    "Stock number","Year","Make","Model",
+                    "Style","VIN","Exterior color",
+                    "Interior color","Miles","Price",
+                    "Transmission","Engine","Status"
+                }
+        ));
+    }
+
+    private void setMatrizForTable(String[][] tableVehicles, List<Vehicle> listVehicles) throws IOException {
         for (int i=0 ; i < jvDao.getNumberVehicle() ; i++){
-            tableVehicles[i][0] =  Integer.toString(listVehicles.get(i).getStockNumber());
-            tableVehicles[i][1] =  Integer.toString(listVehicles.get(i).getYear());
+            tableVehicles[i][0] = Integer.toString(listVehicles.get(i).getStockNumber());
+            tableVehicles[i][1] = Integer.toString(listVehicles.get(i).getYear());
             tableVehicles[i][2] = listVehicles.get(i).getMake();
             tableVehicles[i][3] = listVehicles.get(i).getModel();
             tableVehicles[i][4] = listVehicles.get(i).getStyle();
@@ -169,21 +189,6 @@ public class PnlVehicleController {
             tableVehicles[i][12] = listVehicles.get(i).getImage();
             tableVehicles[i][13] = listVehicles.get(i).getStatus();
         }
-        
-        pnlTableVehicle.getTblTableVehicle().setModel(new DefaultTableModel(
-        tableVehicles,
-        new String[]{
-            "Stock number","Year","Make","Model",
-            "Style","VIN","Exterior color",
-            "Interior color","Miles","Price",
-            "Transmission","Engine","Status"
-        }
-    )); 
-        
-    }
-    
-    private void insertDate(){
-        
     }
    
     private void btnBrowseActionListener(ActionEvent e){

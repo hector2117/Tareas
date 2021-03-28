@@ -54,6 +54,7 @@ public class FrmVehicle extends javax.swing.JFrame {
         jSplitPane1.setDividerLocation(120);
         jSplitPane1.setOneTouchExpandable(true);
 
+        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
         jPanel1.setLayout(new java.awt.GridLayout(5, 1, 0, 5));
 
         btnNew.setText("New");
@@ -79,7 +80,7 @@ public class FrmVehicle extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(204, 255, 204));
         jPanel2.add(jPanel3, java.awt.BorderLayout.PAGE_START);
 
-        pnlContent.setBackground(new java.awt.Color(0, 255, 102));
+        pnlContent.setBackground(new java.awt.Color(0, 153, 153));
         pnlContent.setPreferredSize(new java.awt.Dimension(0, 0));
         pnlContent.setLayout(new java.awt.BorderLayout());
         jPanel2.add(pnlContent, java.awt.BorderLayout.CENTER);
@@ -88,7 +89,7 @@ public class FrmVehicle extends javax.swing.JFrame {
 
         getContentPane().add(jSplitPane1, java.awt.BorderLayout.CENTER);
 
-        setSize(new java.awt.Dimension(604, 556));
+        setSize(new java.awt.Dimension(924, 556));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
