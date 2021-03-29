@@ -29,9 +29,11 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import ni.edu.uni.programacion.backend.dao.implementation.JsonVehicleDaoImpl;
 import ni.edu.uni.programacion.backend.pojo.Vehicle;
 import ni.edu.uni.programacion.backend.pojo.VehicleSubModel;
@@ -55,6 +57,7 @@ public class PnlVehicleController {
     private DefaultComboBoxModel cmbModelStatus;
     private JFileChooser fileChooser;
     private JComboBox cmbBuscar;
+    private TableRowSorter trsfiltro;
     
     private JsonVehicleDaoImpl jvDao;
     private Border stockBorder;
@@ -160,8 +163,42 @@ public class PnlVehicleController {
         
         setTable(tableVehicles); //Con la matriz, se coloca en la tabla y se muestra en el panel al inicializarse
         
-        
+        pnlTableVehicle.getjTextField1().addKeyListener(new KeyAdapter() {
+           
+        public void keyReleased(final KeyEvent e) {
+            int a=0;
+        String cadena = (pnlTableVehicle.getjTextField1() .getText());
+       pnlTableVehicle.getjTextField1().setText(cadena);
+         pnlTableVehicle.repaint();
+        filtro(a);
+        }
+    });
+        trsfiltro = new TableRowSorter(pnlTableVehicle.getTblTableVehicle().getModel());
+        pnlTableVehicle.getTblTableVehicle().setRowSorter(trsfiltro);
     }
+    
+      private void filtro (int a)
+    {
+         String opcion = pnlTableVehicle.getCmbBuscar().getSelectedItem().toString();
+             if(opcion.equals("ID")){
+                a=0;
+                }else if(opcion.equals("Make")){
+                a=3;
+            }else if(opcion.equals("Model")){
+            a=4;
+        }else if(opcion.equals("Year")){
+            a=2;
+         }else if(opcion.equals("Style")){
+             a =5;
+           }else if(opcion.equals("VIN")){
+                a=6;
+         }else if(opcion.equals("Status")){
+                a=14;
+            }else{
+            System.out.println("Seleccionar");
+                }
+          trsfiltro.setRowFilter(RowFilter.regexFilter(pnlTableVehicle.getjTextField1().getText(), a));
+       }
 
     private void setTable(String[][] tableVehicles) {
         pnlTableVehicle.getTblTableVehicle().setModel(new DefaultTableModel( //La matriz se coloca en la table
@@ -243,7 +280,7 @@ public class PnlVehicleController {
         vehicleValidation(v);
         
         jvDao.create(v);
-        JOptionPane.showMessageDialog(null, "Vehicle saved successfully.","Information message",JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, " Vehicle saved successfully.","Information message",JOptionPane.INFORMATION_MESSAGE);
         
     }
     
@@ -252,15 +289,18 @@ public class PnlVehicleController {
         throw  new Exception("Stock Number not valid.");
         }
         
-        if (v.getVin().isEmpty() || v.isBlank(v.getVin())){ // v.getVin().isBlank
-        throw new Exception("Vin number invalidad.");
+        if (v.getStyle().isEmpty() || v.isBlank(v.getStyle())){ // v.getVin().isBlank
+        throw new Exception(" Style cannot be empty.");
         }
         
-        if (v.getEngine().isEmpty() || v.isBlank(v.getVin())){  // v.getVin().isBlank
+        if (v.getVin().isEmpty() || v.isBlank(v.getVin())){ // v.getVin().isBlank
+        throw new Exception("VIN number invalidad.");
+        }
+        
+        if (v.getEngine().isEmpty() || v.isBlank(v.getEngine())){  // v.getEngine().isBlank
         throw new Exception("Engine cannot be empty.");
         }
     }
-    
-  
+   
 }
 

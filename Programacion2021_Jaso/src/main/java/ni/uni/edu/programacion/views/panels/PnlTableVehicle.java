@@ -23,12 +23,15 @@ import ni.uni.edu.programacion.Controllers.PnlVehicleController;
  */
 public class PnlTableVehicle extends javax.swing.JPanel {
     private PnlVehicleController pnlVehicleController;
-private TableRowSorter trsfiltro;
 
 
     public PnlTableVehicle() {
         initComponents();
          cmbBuscar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Make", "Model", "Year" , "Style", "VIN" , "Status" }));
+    }
+                              
+    public JComboBox<String> getCmbBuscar() {
+        return cmbBuscar;
     }
 
     public JTextField getjTextField1() {
@@ -79,11 +82,6 @@ private TableRowSorter trsfiltro;
         txtBusqueda.setForeground(new java.awt.Color(0, 51, 204));
         txtBusqueda.setText("Busqueda");
         txtBusqueda.setSelectionColor(new java.awt.Color(204, 51, 0));
-        txtBusqueda.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtBusquedaKeyTyped(evt);
-            }
-        });
         pnlSearch.add(txtBusqueda);
 
         add(pnlSearch, java.awt.BorderLayout.PAGE_START);
@@ -125,46 +123,7 @@ private TableRowSorter trsfiltro;
 
         add(pnlContent, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtBusquedaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusquedaKeyTyped
-       txtBusqueda.addKeyListener(new KeyAdapter() {
-           
-        public void keyReleased(final KeyEvent e) {
-            int a=0;
-        String cadena = (txtBusqueda.getText());
-        txtBusqueda.setText(cadena);
-        repaint();
-        filtro(a);
-        }
-    });
-        trsfiltro = new TableRowSorter(tblTableVehicle.getModel());
-        tblTableVehicle.setRowSorter(trsfiltro);
-    }//GEN-LAST:event_txtBusquedaKeyTyped
-
-    private void filtro (int a)
-    {
-         String opcion = cmbBuscar.getSelectedItem().toString();
-             if(opcion.equals("ID")){
-                a=0;
-                }else if(opcion.equals("Make")){
-                a=3;
-            }else if(opcion.equals("Model")){
-            a=4;
-        }else if(opcion.equals("Year")){
-            a=2;
-         }else if(opcion.equals("Style")){
-             a =5;
-           }else if(opcion.equals("VIN")){
-                a=6;
-         }else if(opcion.equals("Status")){
-                a=14;
-            }else{
-            System.out.println("Seleccionar");
-                }
-          trsfiltro.setRowFilter(RowFilter.regexFilter(txtBusqueda.getText(), a));
-       }
-  
-    
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cmbBuscar;
     private javax.swing.JLabel jLabel1;
