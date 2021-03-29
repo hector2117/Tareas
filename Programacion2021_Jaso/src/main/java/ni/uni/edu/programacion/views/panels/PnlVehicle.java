@@ -468,12 +468,11 @@ public class PnlVehicle extends javax.swing.JPanel {
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-      txtStock.setText(" ");
+          txtStock.setText(" ");
       txtStyle.setText(" ");
       txtEngine.setText(" ");
       txtImage.setText(" ");
       fmtVin.setText(" ");
-      
     }//GEN-LAST:event_btnCancelActionPerformed
 
 

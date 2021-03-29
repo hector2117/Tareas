@@ -54,7 +54,7 @@ public class PnlVehicleController {
     private DefaultComboBoxModel cmbModelEColor;
     private DefaultComboBoxModel cmbModelStatus;
     private JFileChooser fileChooser;
-    private JComboBox combo;
+    private JComboBox cmbBuscar;
     
     private JsonVehicleDaoImpl jvDao;
     private Border stockBorder;
@@ -67,6 +67,7 @@ public class PnlVehicleController {
     public PnlVehicleController(PnlTableVehicle pnlTableVehicle) throws IOException{
         this.pnlTableVehicle = pnlTableVehicle;
         initComponenTable();
+      
     }
     
     private void initComponent() throws FileNotFoundException{
@@ -150,6 +151,7 @@ public class PnlVehicleController {
     }
     
     private void initComponenTable() throws IOException {
+
         jvDao = new JsonVehicleDaoImpl();
         List<Vehicle> listVehicles = (List<Vehicle>) jvDao.getAll(); // Se coloca la coleccion en una Lista
         String[][] tableVehicles = new String[jvDao.getNumberVehicle()][15]; //Creacion de una matriz de tipo String
@@ -157,6 +159,7 @@ public class PnlVehicleController {
         setMatrizForTable(tableVehicles, listVehicles); //Se coloca todos los datos del vehiculo en una matriz tipo String
         
         setTable(tableVehicles); //Con la matriz, se coloca en la tabla y se muestra en el panel al inicializarse
+        
         
     }
 
@@ -174,6 +177,7 @@ public class PnlVehicleController {
 
     private void setMatrizForTable(String[][] tableVehicles, List<Vehicle> listVehicles) throws IOException {
         for (int i=0 ; i < jvDao.getNumberVehicle() ; i++){
+            tableVehicles[i][0] = Integer.toString(i+1);
             tableVehicles[i][1] = Integer.toString(listVehicles.get(i).getStockNumber());
             tableVehicles[i][2] = Integer.toString(listVehicles.get(i).getYear());
             tableVehicles[i][3] = listVehicles.get(i).getMake();
@@ -257,5 +261,6 @@ public class PnlVehicleController {
         }
     }
     
+  
 }
 
