@@ -116,7 +116,7 @@ public class FrmVehicle extends javax.swing.JFrame {
 
         getContentPane().add(jSplitPane1, java.awt.BorderLayout.CENTER);
 
-        setSize(new java.awt.Dimension(814, 479));
+        setSize(new java.awt.Dimension(858, 479));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
