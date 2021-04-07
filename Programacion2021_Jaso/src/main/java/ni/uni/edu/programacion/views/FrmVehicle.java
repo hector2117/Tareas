@@ -62,12 +62,13 @@ public class FrmVehicle extends javax.swing.JFrame {
         jSplitPane1.setDividerLocation(120);
         jSplitPane1.setOneTouchExpandable(true);
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel1.setBackground(new java.awt.Color(153, 204, 255));
         jPanel1.setLayout(new java.awt.GridLayout(5, 1, 0, 5));
 
-        btnNew.setBackground(new java.awt.Color(204, 204, 255));
+        btnNew.setBackground(new java.awt.Color(255, 255, 255));
         btnNew.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
-        btnNew.setForeground(new java.awt.Color(102, 0, 102));
+        btnNew.setForeground(new java.awt.Color(51, 51, 51));
+        btnNew.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sistemas-11\\Desktop\\new Icon2.jpg")); // NOI18N
         btnNew.setText("New");
         btnNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,9 +77,9 @@ public class FrmVehicle extends javax.swing.JFrame {
         });
         jPanel1.add(btnNew);
 
-        btnView.setBackground(new java.awt.Color(204, 204, 255));
+        btnView.setBackground(new java.awt.Color(255, 255, 255));
         btnView.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
-        btnView.setForeground(new java.awt.Color(51, 0, 255));
+        btnView.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sistemas-11\\Desktop\\view Icon.jpg")); // NOI18N
         btnView.setText("View");
         btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,9 +88,9 @@ public class FrmVehicle extends javax.swing.JFrame {
         });
         jPanel1.add(btnView);
 
-        btnExit.setBackground(new java.awt.Color(204, 204, 255));
+        btnExit.setBackground(new java.awt.Color(255, 255, 255));
         btnExit.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
-        btnExit.setForeground(new java.awt.Color(153, 0, 153));
+        btnExit.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sistemas-11\\Downloads\\exit23.jpg")); // NOI18N
         btnExit.setText("Exit");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,7 +103,7 @@ public class FrmVehicle extends javax.swing.JFrame {
 
         jPanel2.setLayout(new java.awt.BorderLayout());
 
-        jPanel3.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel3.setBackground(new java.awt.Color(102, 204, 255));
         jPanel2.add(jPanel3, java.awt.BorderLayout.PAGE_START);
 
         pnlContent.setBackground(new java.awt.Color(204, 204, 204));
@@ -115,7 +116,7 @@ public class FrmVehicle extends javax.swing.JFrame {
 
         getContentPane().add(jSplitPane1, java.awt.BorderLayout.CENTER);
 
-        setSize(new java.awt.Dimension(706, 479));
+        setSize(new java.awt.Dimension(814, 479));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

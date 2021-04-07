@@ -174,12 +174,11 @@ public class PnlVehicle extends javax.swing.JPanel {
 
         add(jPanel1, java.awt.BorderLayout.PAGE_END);
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(new javax.swing.border.MatteBorder(null));
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel1.setText("StockNumber:");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -196,7 +195,6 @@ public class PnlVehicle extends javax.swing.JPanel {
         jPanel2.add(txtStock, gridBagConstraints);
 
         jLabel2.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(102, 0, 0));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Year:");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -216,7 +214,6 @@ public class PnlVehicle extends javax.swing.JPanel {
         jPanel2.add(cmbYear, gridBagConstraints);
 
         jLabel3.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(102, 0, 0));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Make:");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -236,7 +233,6 @@ public class PnlVehicle extends javax.swing.JPanel {
         jPanel2.add(cmbMake, gridBagConstraints);
 
         jLabel4.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(102, 0, 0));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Model:");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -256,7 +252,6 @@ public class PnlVehicle extends javax.swing.JPanel {
         jPanel2.add(cmbModel, gridBagConstraints);
 
         jLabel5.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(102, 0, 0));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("Style:");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -276,7 +271,6 @@ public class PnlVehicle extends javax.swing.JPanel {
         jPanel2.add(txtStyle, gridBagConstraints);
 
         jLabel6.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(102, 0, 0));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("VIN:");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -294,7 +288,6 @@ public class PnlVehicle extends javax.swing.JPanel {
         jPanel2.add(fmtVin, gridBagConstraints);
 
         jLabel7.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(102, 0, 0));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel7.setText("Exterior color:");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -314,7 +307,6 @@ public class PnlVehicle extends javax.swing.JPanel {
         jPanel2.add(cmbEColor, gridBagConstraints);
 
         jLabel8.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(102, 0, 0));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel8.setText("Interior color:");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -334,7 +326,6 @@ public class PnlVehicle extends javax.swing.JPanel {
         jPanel2.add(cmbIColor, gridBagConstraints);
 
         jLabel9.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(102, 0, 0));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel9.setText("Miles:");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -355,7 +346,6 @@ public class PnlVehicle extends javax.swing.JPanel {
         jPanel2.add(spnMiles, gridBagConstraints);
 
         jLabel10.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(102, 0, 0));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("Price:");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -376,7 +366,6 @@ public class PnlVehicle extends javax.swing.JPanel {
         jPanel2.add(spnPrice, gridBagConstraints);
 
         jLabel11.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(102, 0, 0));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel11.setText("Transmission:");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -411,7 +400,6 @@ public class PnlVehicle extends javax.swing.JPanel {
         jPanel2.add(rbtnMan, gridBagConstraints);
 
         jLabel12.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(102, 0, 0));
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel12.setText("Engine:");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -431,7 +419,6 @@ public class PnlVehicle extends javax.swing.JPanel {
         jPanel2.add(txtEngine, gridBagConstraints);
 
         jLabel13.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(102, 0, 0));
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel13.setText("Image path:");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -462,7 +449,6 @@ public class PnlVehicle extends javax.swing.JPanel {
         jPanel2.add(btnBrowse, gridBagConstraints);
 
         jLabel14.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(102, 0, 0));
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel14.setText("Status:");
         gridBagConstraints = new java.awt.GridBagConstraints();
