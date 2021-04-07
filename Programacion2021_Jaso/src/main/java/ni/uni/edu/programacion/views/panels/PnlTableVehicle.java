@@ -68,7 +68,7 @@ public class PnlTableVehicle extends javax.swing.JPanel {
 
         setLayout(new java.awt.BorderLayout());
 
-        pnlSearch.setBackground(new java.awt.Color(204, 204, 204));
+        pnlSearch.setBackground(new java.awt.Color(255, 255, 255));
         pnlSearch.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
