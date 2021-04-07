@@ -68,7 +68,6 @@ public class FrmVehicle extends javax.swing.JFrame {
         btnNew.setBackground(new java.awt.Color(204, 204, 255));
         btnNew.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         btnNew.setForeground(new java.awt.Color(102, 0, 102));
-        btnNew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/new_page_document_16676.png"))); // NOI18N
         btnNew.setText("New");
         btnNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,7 +79,6 @@ public class FrmVehicle extends javax.swing.JFrame {
         btnView.setBackground(new java.awt.Color(204, 204, 255));
         btnView.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         btnView.setForeground(new java.awt.Color(51, 0, 255));
-        btnView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view_search_find_9565.png"))); // NOI18N
         btnView.setText("View");
         btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,7 +90,6 @@ public class FrmVehicle extends javax.swing.JFrame {
         btnExit.setBackground(new java.awt.Color(204, 204, 255));
         btnExit.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         btnExit.setForeground(new java.awt.Color(153, 0, 153));
-        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/exit_icon-icons.com_70975 (1).png"))); // NOI18N
         btnExit.setText("Exit");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
